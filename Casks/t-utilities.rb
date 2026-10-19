@@ -4,18 +4,18 @@ cask "t-utilities" do
 
   url "https://github.com/mordol/T-Utilities/releases/download/v#{version}/T-Utilities-#{version}.zip"
   name "T-Utilities"
-  desc "Modular menu bar utilities: clipboard, keep-awake, second clock, window moves, cable info"
+  desc "Menu bar utilities: clipboard, keep-awake, second clock, windows, cable info"
   homepage "https://github.com/mordol/T-Utilities"
 
   auto_updates true
   depends_on arch: :arm64
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "T-Utilities.app"
 
   # Signed with a personal certificate, not notarized: clear quarantine so Gatekeeper does not block launch.
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/T-Utilities.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/T-Utilities.app"]
   end
 
   uninstall quit: "com.taegyu.tutilities"
