@@ -1,6 +1,6 @@
 cask "t-utilities" do
-  version "0.1.6"
-  sha256 "25f0cbb3f0015212366a1af67742d8f5515afaf13bc6d1e4242d341b743b681a"
+  version "0.1.7"
+  sha256 "a6cba32360c8e0e898833beb2509c05c62dce2da4c9adc036e49200015c9f484"
 
   url "https://github.com/mordol/T-Utilities/releases/download/v#{version}/T-Utilities-#{version}.zip"
   name "T-Utilities"
